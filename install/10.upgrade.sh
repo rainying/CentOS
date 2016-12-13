@@ -3,8 +3,8 @@
 # 請以root身份登入
 ##
 
-yum upgrade
+yum -y upgrade
 
 yum install epel-release
 
-yum upgrade
+yum -y upgrade
