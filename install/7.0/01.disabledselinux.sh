@@ -8,4 +8,4 @@ mv /etc/selinux/config /etc/selinux/config_old
 echo "SELINUX=disabled" >> /etc/selinux/config
 echo "SELINUXTYPE=targeted" >> /etc/selinux/config
 
-rebootqweqweqwe
+reboot
