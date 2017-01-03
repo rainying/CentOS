@@ -1,0 +1,12 @@
+#!/bin/sh
+###
+# 請以root身份登入
+##
+
+yum -y install httpd
+
+service httpd start 
+
+chkconfig httpd on
+
+service httpd status 
