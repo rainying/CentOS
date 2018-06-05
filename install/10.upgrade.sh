@@ -5,6 +5,6 @@
 
 yum -y upgrade
 
-yum install epel-release
+yum -y install epel-release
 
 yum -y upgrade
