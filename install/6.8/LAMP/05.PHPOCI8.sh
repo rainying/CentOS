@@ -5,6 +5,7 @@
 
 cd ~
 
+yum -y install git 
 
 git clone http://cns:cnsmis9958@172.17.1.139/cnsmis/IRD_Send_Message_System.git ~/init
 mv /etc/selinux/config /etc/selinux/config_old

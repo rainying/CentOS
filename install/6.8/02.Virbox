@@ -1,0 +1,47 @@
+yum -y install epel-release
+rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+yum update
+
+yum -y install bzip2 kernel-devel kernel-headers gcc make dkms
+   
+mkdir /media/cdrom
+
+mount /dev/cdrom /media/cdrom/
+
+/media/cdrom/VBoxLinuxAdditions.run
+
+reboot 
+
+ls /media/
+cdrom sf_Project
+
+ls /media/sf_Project
+
+//------------------------------------------------------------------------------------
+
+阿舍是在 Ubuntu 上用 Ubuntu 的虛擬機器的時候遇到的，就是在 Ubuntu 虛擬機器上，下指令掛載好分享資料夾之後，不論是要 cd 進入或是 ls 檔案清單，就都會出現「拒絕不符權限的操作」，然後，不論怎麼的去 chown 或做什麼，這載掛著的分享資料就是進不去，一直出現權限不對的訊息哩！
+
+
+VirtualBox 的提示訊息
+雖然說，在設定虛擬機器的時候，VirtualBox 會提示那個什麼 USB 要加入什麼群組才能用的訊息，不過，阿舍想說，反正阿舍沒有要在虛擬機器上插 USB 來用，所以，不管這個問題，應該是沒什麼關係的哩 ！結果，阿舍上網查了一下，才知，原來就是 VirtualBox 所提示的那個問題哩 ！ OMG ！
+
+這個問題的解決方式，很簡單，但是，有點小煩，就是要在 Ubuntu 虛擬機器和 Ubuntu 主機上，把你所使用的使用者帳號分別給加到「vboxsf」這個群組，以阿舍的帳號是 ayubiz 為例，就用下面的指令來把 ayubiz 這個帳號加到 vboxsf 群組。
+
+sudo usermod -G vboxsf -a ayubiz
+
+上面的指令執行完成之後，並不會馬上生效，要等到下一次登入時，新的群組才會生效的，所以，請先登出再登，然後，用下面的指令來顯示目前這個使用者所加入的群組，應該在最後面就會出現 vboxsf 群組了哩！ 
+
+groups
+
+如果沒有在虛擬機器上安裝過 Guest Addition 的話，應該就會找不到 vboxsf 這個群組， 如果不確定的話，可以用下面的這一行指令來查詢看看，要是沒有出現「vboxsf:1001」的訊息，那麼就可能是沒安裝過  Guest Addition ，所以，請先參考這一篇的說明操作後，再按照上面提到的方式來把使用者加入 vboxsf 群組囉！
+
+sudo cat /etc/group | grep vboxsf
+
+不過，在阿舍做完上面的動作，高高興興的啟動 Ubuntu 虛擬機器來載分享資料夾時，卻出現「Invalid Argument」的訊息哩！結果，阿舍就再查了一下 VirtualBox 的使用說明，這才發現，阿舍安裝 VirtualBox 的時候，有偷懶，就是沒把阿舍在用的這個主機 (Host ) 的使用者加到主機的「vboxusers」群組，所以，阿舍要用下面的指令來把阿舍主機的 arthuryu 帳號加到「vboxusers」群組哩！
+
+sudo usermod -G vboxusers -a arthuryu
+
+上面的指令執行完成後，一樣，要先登出再登入，然後，移除原來指定的分享資料夾後，再重新指定一次，之後，啟用 Ubuntu 虛擬機器和掛載分享資料夾，這樣，應該就能夠正常使用分享資料夾了哩！ 不過，阿舍如果是掛 NTFS 的資料夾的話，還是會有問題，這個就還要再研究了哩 ！
+
+
+Read more: http://www.arthurtoday.com/2012/09/virtualbox-shared-folder-permission-denied-invalid-argument.html#ixzz4UqlovKJO

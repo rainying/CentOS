@@ -3,6 +3,12 @@
 # 請以root身份登入
 ##
 
+yum -y install wget 
+
+wget http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+
+yum -y update
+
 yum -y install httpd
 
 service httpd start 

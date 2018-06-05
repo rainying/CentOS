@@ -21,19 +21,11 @@ chmod +x ~/github/centos/install/*.sh
 ```
 
 ```
-sh ~/github/centos/install/01.disabledselinux.sh
-```
-
-```
-sh ~/github/centos/install/02.ntpdate.sh
+sh ~/github/centos/install/01.ntpdate.sh
 ```
 
 ```
 sh ~/github/centos/install/10.upgrade.sh
-```
-
-```
-sh ~/github/centos/install/11.ifconfig.sh
 ```
 
 ```

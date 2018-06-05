@@ -1,0 +1,20 @@
+#vi /etc/sysconfig/network-scripts/ifcfg-(你的網路卡編號)
+
+(vi)ifcfg-(你的網路卡編號)
+	#BOOTPROTO=dhcp
+	#ONBOOT=no
+	#IPV6INIT=YES
+	IPV6INIT=no
+	BOOTPROTO=none
+	ONBOOT=yes
+	IPADDR0=(IP位置)
+	GATEWAY=(GATEWAY位置)
+	PREFIX=24
+	DNS1=(DNS位置)
+
+#systemctl restart network
+
+#yum -y install net-tools
+
+
+
