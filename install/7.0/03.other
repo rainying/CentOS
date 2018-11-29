@@ -1,0 +1,5 @@
+ssh-keygen -t rsa
+
+scp root@172.17.127.122:/root/vdc /root/vdc
+
+yum -y install hdparm #硬碟讀寫測試套件
