@@ -10,14 +10,6 @@ mkdir /media/cdrom
 
 mount /dev/cdrom /media/cdrom/
 
-
-
-
 /media/cdrom/VBoxLinuxAdditions.run
 
-reboot 
-
-ls /media/
-cdrom sf_Project
-
-ls /media/sf_Project
+shutdown -h now 
