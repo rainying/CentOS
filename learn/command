@@ -10,9 +10,19 @@ reboot
 
 #===============================================================================================
 
+mkdir [:DIR NAME] # mkdir can create a dir .
 
+rm [:FILENAME] # rm can remove a dir or a file .
+
+rm -f [:FILENAME] # -f is not asked when remove . 
+
+rm -r [:DIRNAME] # -r is deleted dir when remove . 
+
+rm -rf [:DIRNAME] 
 
 #===============================================================================================
+
+curl [:URL] # curl can link to a website
 
 #===============================================================================================
 

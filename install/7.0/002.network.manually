@@ -16,5 +16,28 @@
 
 #yum -y install net-tools
 
+範本
+
+vi /etc/sysconfig/network-scripts/ifcfg-enp0s3
+
+TYPE="Ethernet"
+ONBOOT="yes"
+NAME="enp0s3"
+DEVICE="enp0s3"
+#UUID="88b9b7bd-12d1-4602-8c55-2e419ac9b6be"
+UUID="f7e44167-3e18-40cc-a39d-49c1d60ca8ca"
+#BOOTPROTO="dhcp"
+
+IPADDR=192.168.200.101
+PREFIX=24
+GATEWAY=192.168.200.1
+DNS1=172.18.168.21
+DNS2=172.18.168.22
+
+#IPV6INIT="no"
+#PROXY_METHOD="none"
+#BROWSER_ONLY="no"
+#DEFROUTE="yes"
+#IPV4_FAILURE_FATAL="no"
 
 
